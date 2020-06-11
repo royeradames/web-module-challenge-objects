@@ -29,11 +29,23 @@ and should return a number.
 
 For example, burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2*/
 burger.discount = function (specialFor){
+  let specialDiscount;
+  let specialForTeacherStudent = .25, 
+      studentDiscount = .10,
+      priceDiscounted;
   
-  return this.price * specialDiscount;
+    if(specialFor === "teacher"){
+    specialDiscount = specialForTeacherStudent;
+  } else {
+    
+    specialDiscount =studentDiscount;
+  }
+
+  priceDiscounted = (this.price - (this.price * specialDiscount));
+  return "$" + priceDiscounted;
 }
-
-
+console.log(burger.discount("teacher"));
+console.log(burger.discount("student"));
 ///////////////Reviews (MVP)///////////////////
 
 const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and wonderful vegan options!"},
