@@ -205,10 +205,8 @@ function carMaker(odometer) {
     /* code here */
     const car = {
       odometer: odometer,
-      // 32 inches in miles
-      standardTireDiametor: 32,
       drive: function(distanceInMiles){
-        this.odometer = (distanceInMiles/this.standardTireDiametor) + (this.odometer);
+        this.odometer += distanceInMiles;
         }
     }
     return car;
@@ -217,5 +215,5 @@ function carMaker(odometer) {
 const myCar = carMaker(50)
 console.log(myCar);
 console.log(myCar.odometer);
-myCar.drive(10);
+myCar.drive(62);
 console.log(myCar.odometer);
