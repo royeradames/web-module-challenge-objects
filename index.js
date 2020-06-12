@@ -118,38 +118,38 @@ const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and
 //     {name:"Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."}]
 // */
 
- function getReviewByRating(givenReview, givenRating) {
-  // console.log(givenReview)  
-  const reviewsByRating = [],
-          noReviews = [];
-    for(let i = 0; i < givenReview.length; i++)
-    {
-      // console.log("Inside of for ");
+//  function getReviewByRating(givenReview, givenRating) {
+//   // console.log(givenReview)  
+//   const reviewsByRating = [],
+//           noReviews = [];
+//     for(let i = 0; i < givenReview.length; i++)
+//     {
+//       // console.log("Inside of for ");
       
-      // console.log(givenRating);
-      // console.log(givenReview[i].rating)
-      if(givenRating === Math.floor(givenReview[i].rating)){
-        // console.log("Inside of for if")
+//       // console.log(givenRating);
+//       // console.log(givenReview[i].rating)
+//       if(givenRating === Math.floor(givenReview[i].rating)){
+//         // console.log("Inside of for if")
 
-        // console.log(givenReview[i])
-        reviewsByRating.push(givenReview[i]);
-        // console.log(reviewsByRating)
-      }
-    }
-    if(reviewsByRating === noReviews){
-      reviewsByRating.push("No reviews");
-    }
+//         // console.log(givenReview[i])
+//         reviewsByRating.push(givenReview[i]);
+//         // console.log(reviewsByRating)
+//       }
+//     }
+//     if(reviewsByRating === noReviews){
+//       reviewsByRating.push("No reviews");
+//     }
 
-    console.log(reviewsByRating)
-    return reviewsByRating;
-  }
+//     console.log(reviewsByRating)
+//     return reviewsByRating;
+//   }
 
-  const reviewByRating = getReviewByRating(reviews, 4);
+//   const reviewByRating = getReviewByRating(reviews, 4);
   
-for(let i = 0; i < reviewByRating.length; i++){
+// for(let i = 0; i < reviewByRating.length; i++){
   
-  console.log(reviewByRating[i]);
-}
+//   console.log(reviewByRating[i]);
+// }
 
 // /** STRETCH 2: Write a function called 'getLongestReview' that returns an array containing all reviews longer than 15 words. 
   
@@ -201,7 +201,21 @@ The returned object should have the following characteristics:
 */
 
 
-function carMaker(/* code here */) {
+function carMaker(odometer) {
     /* code here */
-    
+    const car = {
+      odometer: odometer,
+      // 32 inches in miles
+      standardTireDiametor: 32,
+      drive: function(distanceInMiles){
+        this.odometer = (distanceInMiles/this.standardTireDiametor) + (this.odometer);
+        }
+    }
+    return car;
 }
+
+const myCar = carMaker(50)
+console.log(myCar);
+console.log(myCar.odometer);
+myCar.drive(10);
+console.log(myCar.odometer);
